@@ -25,7 +25,7 @@ public class PlayerMovementScript : MonoBehaviour
 
 
     [Header("Direction Management")]
-    [SerializeField] bool IsFacingRight;
+    [SerializeField] public bool IsFacingRight;
 
 
     [Header("References")]
