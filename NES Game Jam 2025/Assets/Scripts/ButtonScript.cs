@@ -6,6 +6,7 @@ public class ButtonScript : MonoBehaviour
 {
     [Header("References")]
     public GameObject DoorAssigned;
+    public SlidingDoorScript SDS;
     public BoxCollider2D BC;
 
     [Header("States")]
@@ -14,12 +15,32 @@ public class ButtonScript : MonoBehaviour
     void Start()
     {
         BC = GetComponent<BoxCollider2D>();
-
+        SDS = DoorAssigned.GetComponent<SlidingDoorScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Pressed)
+        {
+            SDS.Opening = true;
+        }
+        else
+        {
+            SDS.Opening = false;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Princess")
+        {
+            Pressed = true;
+        }
         
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Pressed = false;
     }
 }

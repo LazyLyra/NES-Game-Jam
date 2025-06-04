@@ -8,7 +8,7 @@ public class SlidingDoorScript : MonoBehaviour
     [SerializeField] Vector3 OpenPos;
     [SerializeField] Vector3 ClosePos;
 
-    [SerializeField] bool IsOpen;
+    public bool Opening;
 
     [Header("Movement")]
     [SerializeField] float MoveSpeed;
@@ -24,28 +24,34 @@ public class SlidingDoorScript : MonoBehaviour
         RB = GetComponent<Rigidbody2D>();
         OpenPos = OpenChild.transform.position;
         ClosePos = CloseChild.transform.position;
-        IsOpen = false;
+        Opening = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Opening)
+        {
+            Open();
+        }
+        else
+        {
+            Close();
+        }
     }
 
     public void Open()
     {
-        if (!IsOpen)
-        {
-            Vector3.MoveTowards(transform.position, OpenPos, MoveSpeed);
-        }
+        Vector3 dir = OpenPos - transform.position;
+        transform.position += dir * MoveSpeed * Time.deltaTime;
+        
     }
 
     public void Close()
     {
-        if (IsOpen)
-        {
-            Vector3.MoveTowards(transform.position, ClosePos, MoveSpeed);
-        }
+
+        Vector3 dir = ClosePos - transform.position;
+        transform.position += dir * MoveSpeed * Time.deltaTime;
+
     }
 }
