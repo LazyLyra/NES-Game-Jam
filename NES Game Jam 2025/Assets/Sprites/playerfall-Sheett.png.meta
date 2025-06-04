@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5ed5745701bf7ed478c247047037cf9f
+guid: 7415e76555ed34443b59e8170923a96c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: playerrun-Sheet_0
+      name: playerfall-Sheett_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d88ed0e8f558734e8f222a97a8daaee
-      internalID: 1294515345
+      spriteID: 46e72afd9f61d4f438a6328bbd03522b
+      internalID: 2070253401
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerrun-Sheet_1
+      name: playerfall-Sheett_1
       rect:
         serializedVersion: 2
         x: 320
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e427b7a944ffe8d41a1174cc7a65c6b5
-      internalID: 1757496200
+      spriteID: 40de3b21cb0624e4c8e402df63baf6b5
+      internalID: 1603842338
       vertices: []
       indices: 
       edges: []
@@ -162,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      playerrun-Sheet_0: 1294515345
-      playerrun-Sheet_1: 1757496200
+      playerfall-Sheett_0: 2070253401
+      playerfall-Sheett_1: 1603842338
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

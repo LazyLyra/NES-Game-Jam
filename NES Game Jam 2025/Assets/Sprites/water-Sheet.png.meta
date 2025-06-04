@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5ed5745701bf7ed478c247047037cf9f
+guid: 2ffe95ecd0d35a74faa6d5eae3e34e82
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 320
+  spritePixelsToUnits: 1920
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: playerrun-Sheet_0
+      name: water-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 320
-        height: 320
+        width: 1920
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d88ed0e8f558734e8f222a97a8daaee
-      internalID: 1294515345
+      spriteID: 5c775d16f2bfade439d1d4eb9a2e308c
+      internalID: -1302364504
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerrun-Sheet_1
+      name: water-Sheet_1
       rect:
         serializedVersion: 2
-        x: 320
+        x: 1920
         y: 0
-        width: 320
-        height: 320
+        width: 1920
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e427b7a944ffe8d41a1174cc7a65c6b5
-      internalID: 1757496200
+      spriteID: bc585222a9dad3841b6bafb6894cfcff
+      internalID: -555795592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 1920
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56369a36988b5fc498b0ceac101a8b73
+      internalID: 365414156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 1920
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e30c39a951544004485084f4ce7c0346
+      internalID: 1293751067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 7680
+        y: 0
+        width: 1920
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f5cdaa6af192bb40ae5543bf2058c86
+      internalID: 608304336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: water-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 9600
+        y: 0
+        width: 1920
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 234c8b96b49eb6349949fab44515ff52
+      internalID: 1794871952
       vertices: []
       indices: 
       edges: []
@@ -162,8 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      playerrun-Sheet_0: 1294515345
-      playerrun-Sheet_1: 1757496200
+      water-Sheet_0: -1302364504
+      water-Sheet_1: -555795592
+      water-Sheet_2: 365414156
+      water-Sheet_3: 1293751067
+      water-Sheet_4: 608304336
+      water-Sheet_5: 1794871952
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

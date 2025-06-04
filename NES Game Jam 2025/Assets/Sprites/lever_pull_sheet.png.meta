@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5ed5745701bf7ed478c247047037cf9f
+guid: 8cb5e23add3ea7041824f05fe965875f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: playerrun-Sheet_0
+      name: lever_pull_sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d88ed0e8f558734e8f222a97a8daaee
-      internalID: 1294515345
+      spriteID: 497f06e392be1e44a8f6b8975a94db5c
+      internalID: -313414718
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerrun-Sheet_1
+      name: lever_pull_sheet_1
       rect:
         serializedVersion: 2
         x: 320
@@ -145,8 +145,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e427b7a944ffe8d41a1174cc7a65c6b5
-      internalID: 1757496200
+      spriteID: 3864a38c0099e244a991595cefe998bc
+      internalID: -223157485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lever_pull_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60f6e87829746a246a0213d721f51a23
+      internalID: -1659063024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lever_pull_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71a5de4bf8206644a86fe03348f4f777
+      internalID: 1144896066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lever_pull_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 320
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56972ebfbb5a9e14d9aada37a2f7fa1e
+      internalID: -943251415
       vertices: []
       indices: 
       edges: []
@@ -162,8 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      playerrun-Sheet_0: 1294515345
-      playerrun-Sheet_1: 1757496200
+      lever_pull_sheet_0: -313414718
+      lever_pull_sheet_1: -223157485
+      lever_pull_sheet_2: -1659063024
+      lever_pull_sheet_3: 1144896066
+      lever_pull_sheet_4: -943251415
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
