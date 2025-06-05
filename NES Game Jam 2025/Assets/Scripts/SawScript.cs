@@ -1,54 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class MovingPlatformScript : MonoBehaviour
+public class SawScript : MonoBehaviour
 {
-    [SerializeField] float MoveSpeed;
+    [SerializeField] bool AtLeft;
 
-    [Header("Positioning")]
     [SerializeField] float timer;
     [SerializeField] float moveTime;
-    [SerializeField] bool IsTop;
+    [SerializeField] float MoveSpeed;
 
-    [Header("Ref")]
     public Rigidbody2D RB;
-
     // Start is called before the first frame update
     void Start()
     {
-        RB = GetComponent<Rigidbody2D>();
-  
-
-        IsTop = true;
+        RB = GetComponent<Rigidbody2D>();   
+        AtLeft = true;
         timer = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-       
-
         timer += Time.deltaTime;
 
-        if (timer >= moveTime)
+        if (timer > moveTime)
         {
-            if (IsTop)
+            if (AtLeft)
             {
-                RB.velocity = Vector2.down * MoveSpeed;
+                RB.velocity = Vector2.right * MoveSpeed;
                 timer = 0f;
-                IsTop = !IsTop;
+                AtLeft = !AtLeft;
             }
             else
             {
-                RB.velocity = Vector2.up * MoveSpeed;
+                RB.velocity = Vector2.left * MoveSpeed;
                 timer = 0f;
-                IsTop = !IsTop; 
+                AtLeft = !AtLeft;
             }
         }
     }
-
-    
-
 }
