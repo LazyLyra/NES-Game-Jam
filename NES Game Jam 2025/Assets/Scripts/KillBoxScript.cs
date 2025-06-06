@@ -2,20 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyScript : MonoBehaviour
+public class KillBoxScript : MonoBehaviour
 {
-    public BoxCollider2D BC;
-    public SpriteRenderer SR;
 
-    public GameObject KeyDoor; //drag
-    public bool collected;
+    public BoxCollider2D BC;
+    public PolygonCollider2D PC;
+    public PlayerLifeScript PLS;
     // Start is called before the first frame update
     void Start()
     {
         BC = GetComponent<BoxCollider2D>();
-        SR = GetComponent<SpriteRenderer>();
-        SR.enabled = true;
-        collected = false;
+        PC = GetComponent<PolygonCollider2D>();
+        PLS = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLifeScript>();
     }
 
     // Update is called once per frame
@@ -28,9 +26,7 @@ public class KeyScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collected = true;
-            SR.enabled = false;
-
+            PLS.Die();
         }
     }
 }
