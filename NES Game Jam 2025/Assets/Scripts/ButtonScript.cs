@@ -8,6 +8,7 @@ public class ButtonScript : MonoBehaviour
     public GameObject DoorAssigned;
     public SlidingDoorScript SDS;
     public BoxCollider2D BC;
+    public Animator anim;
 
     [Header("States")]
     [SerializeField] bool Pressed;
@@ -16,6 +17,7 @@ public class ButtonScript : MonoBehaviour
     {
         BC = GetComponent<BoxCollider2D>();
         SDS = DoorAssigned.GetComponent<SlidingDoorScript>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -24,10 +26,12 @@ public class ButtonScript : MonoBehaviour
         if (Pressed)
         {
             SDS.Opening = true;
+            anim.SetBool("Pressed", true);
         }
         else
         {
             SDS.Opening = false;
+            anim.SetBool("Pressed", false);
         }
     }
 

@@ -31,12 +31,15 @@ public class PlayerMovementScript : MonoBehaviour
     [Header("References")]
     public Rigidbody2D RB;
     public BoxCollider2D BC;
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         RB = GetComponent<Rigidbody2D>();
-        BC = GetComponent<BoxCollider2D>(); 
+        BC = GetComponent<BoxCollider2D>();
+        anim = GetComponent<Animator>();
+        
         RB.gravityScale = initGravityScale;
         IsFacingRight = true;
         Jumping = false;
@@ -46,6 +49,8 @@ public class PlayerMovementScript : MonoBehaviour
     void Update()
     {
         Grounded = Physics2D.OverlapCircle(FeetPos.position, CheckRadius, WhatIsGround);
+
+       
         
         Run();
 
@@ -54,6 +59,7 @@ public class PlayerMovementScript : MonoBehaviour
 
         if (Grounded)
         {
+            anim.SetBool("Falling", false);
             CoyoteTimer = CoyoteTime;
             JumpTimer = JumpTime;
             RB.gravityScale = initGravityScale;
@@ -84,6 +90,15 @@ public class PlayerMovementScript : MonoBehaviour
         Vector3 HorizApplied = HorizDirection * MoveSpeed * Time.deltaTime;
         transform.position += HorizApplied;
         
+
+        if (Input.GetAxisRaw("Horizontal") != 0)
+        {
+            anim.SetBool("Running", true);
+        }
+        else
+        {
+            anim.SetBool("Running", false);
+        }
     }
     
     private void Jump()
@@ -114,6 +129,16 @@ public class PlayerMovementScript : MonoBehaviour
             Jumping = false;
             CoyoteTimer = 0;
             RB.gravityScale *= JumpReleaseMultiplier;
+        }
+
+        if (Jumping)
+        {
+            anim.SetBool("Jumping", true);
+        }
+        else if (!Jumping && RB.velocity.y < 0)
+        {
+            anim.SetBool("Jumping", false);
+            anim.SetBool("Falling", true);
         }
     }
 

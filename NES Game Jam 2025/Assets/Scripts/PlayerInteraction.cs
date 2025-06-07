@@ -9,10 +9,13 @@ public class PlayerInteraction : MonoBehaviour
     public event EventHandler OnPickUp;
     public event EventHandler OnThrow;
     private PlayerController playerController;
+
+    public Animator anim;
     //picking princess up
 
     private void Awake()
     {
+        anim = GetComponent<Animator>();
         playerController = new PlayerController();
         playerController.Player.Enable();
         playerController.Player.PickUp.performed += PickUp_performed;
