@@ -22,8 +22,6 @@ public class PlayerInteraction : MonoBehaviour
         anim = GetComponent<Animator>();
         playerController = new PlayerController();
         var all = GameObject.FindGameObjectsWithTag("Princess");
-        foreach (var p in all)
-            Debug.Log($"Princess found: {p.name}, Active: {p.activeInHierarchy}, Has Script: {p.GetComponent<InteractWithPrincess>() != null}");
         playerController.Player.Enable();
         playerController.Player.PickUp.performed += PickUp_performed;
         playerController.Player.Throw.performed += Throw_performed;

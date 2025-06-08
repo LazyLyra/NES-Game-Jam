@@ -7,7 +7,6 @@ using UnityEngine;
 public class SawScript : MonoBehaviour
 {
     [SerializeField] bool AtLeft;
-    [SerializeField] public int Damage = 10;
     [SerializeField] float timer;
     [SerializeField] float moveTime;
     [SerializeField] float MoveSpeed;

@@ -31,6 +31,7 @@ public class KeyDoorScript : MonoBehaviour
         OpenPos = OpenChild.transform.position;
         ClosePos = CloseChild.transform.position;
         Opening = false;
+
     }
 
     // Update is called once per frame

@@ -37,10 +37,10 @@ public class PlayerMovementScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        interactWithPrincess = GameObject.FindGameObjectWithTag("Princess").GetComponent<InteractWithPrincess>();
         RB = GetComponent<Rigidbody2D>();
         BC = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
-        interactWithPrincess = GameObject.FindGameObjectWithTag("Princess").GetComponent<InteractWithPrincess>();
         
         RB.gravityScale = initGravityScale;
         IsFacingRight = true;
