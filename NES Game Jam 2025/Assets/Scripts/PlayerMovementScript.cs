@@ -32,6 +32,7 @@ public class PlayerMovementScript : MonoBehaviour
     public Rigidbody2D RB;
     public BoxCollider2D BC;
     public Animator anim;
+    public InteractWithPrincess interactWithPrincess;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,7 @@ public class PlayerMovementScript : MonoBehaviour
         RB = GetComponent<Rigidbody2D>();
         BC = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
+        interactWithPrincess = GameObject.FindGameObjectWithTag("Princess").GetComponent<InteractWithPrincess>();
         
         RB.gravityScale = initGravityScale;
         IsFacingRight = true;
@@ -107,7 +109,10 @@ public class PlayerMovementScript : MonoBehaviour
         if (CoyoteTimer > 0 && Input.GetKeyDown(KeyCode.Z))
         {
             Jumping = true;
-            
+            if (interactWithPrincess.beingPickedUp)
+            {
+                interactWithPrincess.transform.position = Vector2.up * JumpHeight;
+            }
             RB.velocity = Vector2.up * JumpHeight;
         }
 
@@ -149,13 +154,21 @@ public class PlayerMovementScript : MonoBehaviour
         {       
             Vector2 rotator = new Vector3(transform.rotation.x, 0f, transform.rotation.z);
             transform.rotation = Quaternion.Euler(rotator);
+            if (interactWithPrincess.beingPickedUp)
+            {
+                interactWithPrincess.transform.rotation = Quaternion.Euler(rotator);
+            }
            
         }
         else
         {         
             Vector2 rotator = new Vector3(transform.rotation.x, 180f, transform.rotation.z);
             transform.rotation = Quaternion.Euler(rotator);
-            
+            if (interactWithPrincess.beingPickedUp)
+            {
+                interactWithPrincess.transform.rotation = Quaternion.Euler(rotator);
+            }
+
         }
     }
     

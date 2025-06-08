@@ -30,6 +30,7 @@ public class KeyScript : MonoBehaviour
         {
             collected = true;
             SR.enabled = false;
+            BC.enabled = false;
 
         }
     }

@@ -4,19 +4,34 @@ using UnityEngine;
 
 public class PlayerLifeScript : MonoBehaviour
 {
+    [Header("Variables")]
     public bool Alive;
     public BoxCollider2D BC;
+    [SerializeField] private int MaxHp = 100;
+    [SerializeField] private int CurrentHp;
+    [SerializeField] public int Damage = 10;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         Alive = true;
         BC = GetComponent<BoxCollider2D>();
+
+        CurrentHp = MaxHp;
+
+    }
+
+    private void SawScript_OnHitPlayer(object sender, System.EventArgs e)
+    {
+        TakeDamage(Damage);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void Die()
@@ -31,5 +46,13 @@ public class PlayerLifeScript : MonoBehaviour
     private IEnumerator Wait()
     {
         yield return new WaitForSeconds(0.2f);
+    }
+
+    private void TakeDamage(int Dmg)
+    {
+        CurrentHp -= Dmg;
+        if (CurrentHp <= 0) {
+            Die();
+        }
     }
 }

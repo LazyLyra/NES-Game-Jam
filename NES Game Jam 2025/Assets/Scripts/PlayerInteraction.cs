@@ -10,13 +10,20 @@ public class PlayerInteraction : MonoBehaviour
     public event EventHandler OnThrow;
     private PlayerController playerController;
 
+    [SerializeField] public bool pickingUp;
+    [SerializeField] InteractWithPrincess interactWithPrincess;
+
     public Animator anim;
     //picking princess up
 
-    private void Awake()
+    private void Start()
     {
+        interactWithPrincess = GameObject.FindGameObjectWithTag("Princess").GetComponent<InteractWithPrincess>();
         anim = GetComponent<Animator>();
         playerController = new PlayerController();
+        var all = GameObject.FindGameObjectsWithTag("Princess");
+        foreach (var p in all)
+            Debug.Log($"Princess found: {p.name}, Active: {p.activeInHierarchy}, Has Script: {p.GetComponent<InteractWithPrincess>() != null}");
         playerController.Player.Enable();
         playerController.Player.PickUp.performed += PickUp_performed;
         playerController.Player.Throw.performed += Throw_performed;
@@ -25,7 +32,6 @@ public class PlayerInteraction : MonoBehaviour
     private void Throw_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         Throw();
-        Debug.Log("ran");
     }
 
     private void PickUp_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -42,5 +48,9 @@ public class PlayerInteraction : MonoBehaviour
     {
         OnThrow?.Invoke(this, EventArgs.Empty);
     }
-        
+
+    private void Update()
+    {
+        pickingUp = interactWithPrincess.beingPickedUp;
+    }
 }

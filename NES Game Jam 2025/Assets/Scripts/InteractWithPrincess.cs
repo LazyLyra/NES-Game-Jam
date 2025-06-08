@@ -9,14 +9,14 @@ using UnityEngine.Windows.WebCam;
 public class InteractWithPrincess: MonoBehaviour
 {
     [Header("Variables view")]
-    [SerializeField] float interactionDis =2f;
+    [SerializeField] float interactionDis =1f;
     [SerializeField] bool canInteract = false;
-    [SerializeField] bool pickingUp = false;
+    [SerializeField] public bool beingPickedUp = false;
     [SerializeField] bool throwing = false; 
-    [SerializeField] float carryOffSetX = -0.1f;
-    [SerializeField] float carryOffSetY = 1.5f;
-    [SerializeField] float throwVelocity = 0.4f;
-    [SerializeField] float deceleration = 0.3f;
+    [SerializeField] float carryOffSetX = -0.09f;
+    [SerializeField] float carryOffSetY = 0.4f;
+    [SerializeField] float throwVelocity = 0.2f;
+    [SerializeField] float deceleration = 0.1f;
     private Vector3 throwDirection;
     private float velocity;
 
@@ -35,9 +35,9 @@ public class InteractWithPrincess: MonoBehaviour
 
     private void PlayerInteraction_OnThrow(object sender, System.EventArgs e)
     {
-        if (pickingUp) {
+        if (beingPickedUp) {
             throwing = true;
-            pickingUp = false;
+            beingPickedUp = false;
             velocity = throwVelocity;
             float angle = 45f;
             float rad = angle * Mathf.Deg2Rad;
@@ -54,7 +54,10 @@ public class InteractWithPrincess: MonoBehaviour
 
     private void PlayerInteraction_OnPickUp(object sender, System.EventArgs e)
     {
-        pickingUp = !pickingUp;
+        if (canInteract)
+        {
+            beingPickedUp = !beingPickedUp;
+        }
         
     }
 
@@ -63,11 +66,10 @@ public class InteractWithPrincess: MonoBehaviour
     {
         currentDistance = Vector3.Distance(transform.position, PMS.transform.position);
         if (currentDistance < interactionDis) {
-            Vector2 Direction = PMS.transform.position - transform.position;
-            Vector2 CurrentPosition = new Vector2(transform.position.x, transform.position.y);
+            Vector2 Direction = transform.position - PMS.transform.position;
+            Vector2 CurrentPosition = new Vector2(PMS.transform.position.x, PMS.transform.position.y);
             RaycastHit2D Hit = Physics2D.Raycast(CurrentPosition, Direction);
-            Debug.Log(Hit.collider.name);
-            if (Hit.collider.CompareTag("Player"))
+            if (Hit.collider.CompareTag("Princess"))
             {
                 canInteract = true;
             }
@@ -76,7 +78,11 @@ public class InteractWithPrincess: MonoBehaviour
                 canInteract = false;
             }
         }
-        if (canInteract && pickingUp)
+        else
+        {
+            canInteract = false;
+        }
+        if (beingPickedUp)
         {
             followPlayer();
         }
