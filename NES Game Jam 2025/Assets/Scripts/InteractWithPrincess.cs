@@ -104,4 +104,17 @@ public class InteractWithPrincess: MonoBehaviour
     {
         transform.position = PMS.transform.position + new Vector3(carryOffSetX, carryOffSetY, 0);
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!collision.collider.CompareTag("Player"))
+        {
+            velocity = 0f;
+            StartCoroutine(ReboundCD());
+            
+        }
+    }
+    IEnumerator ReboundCD()
+    {
+        yield return new WaitForSeconds(0.5f);
+    }
 }
