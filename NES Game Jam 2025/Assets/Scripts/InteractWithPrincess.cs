@@ -66,10 +66,9 @@ public class InteractWithPrincess: MonoBehaviour
     {
         currentDistance = Vector3.Distance(transform.position, PMS.transform.position);
         if (currentDistance < interactionDis) {
-            Vector2 Direction = transform.position - PMS.transform.position;
-            Vector2 CurrentPosition = new Vector2(PMS.transform.position.x, PMS.transform.position.y);
-            RaycastHit2D Hit = Physics2D.Raycast(CurrentPosition, Direction);
-            if (Hit.collider.CompareTag("Princess"))
+            Vector2 Direction = PMS.transform.position - transform.position;
+            RaycastHit2D Hit = Physics2D.Raycast(transform.position, Direction);
+            if (Hit.collider.CompareTag("Player"))
             {
                 canInteract = true;
             }
