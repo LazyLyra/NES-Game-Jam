@@ -9,6 +9,7 @@ public class PlayerInteraction : MonoBehaviour
     public event EventHandler OnPickUp;
     public event EventHandler OnThrow;
     private PlayerController playerController;
+   
 
     [SerializeField] public bool pickingUp;
     [SerializeField] InteractWithPrincess interactWithPrincess;
@@ -50,5 +51,14 @@ public class PlayerInteraction : MonoBehaviour
     private void Update()
     {
         pickingUp = interactWithPrincess.beingPickedUp;
+
+        if (pickingUp)
+        {
+            anim.SetBool("Carrying", true);
+        }
+        else
+        {
+            anim.SetBool("Carrying", false);
+        }
     }
 }
