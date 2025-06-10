@@ -352,7 +352,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leverReachDist: 1
+  leverDoorScript: {fileID: 266908507}
   PMS: {fileID: 0}
+  PIS: {fileID: 0}
 --- !u!95 &381650868
 Animator:
   serializedVersion: 5
