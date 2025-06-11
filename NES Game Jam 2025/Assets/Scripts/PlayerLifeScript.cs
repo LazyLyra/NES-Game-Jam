@@ -10,7 +10,7 @@ public class PlayerLifeScript : MonoBehaviour
     [SerializeField] private int MaxHp = 100;
     [SerializeField] private int CurrentHp;
     [SerializeField] public int Damage = 10;
-
+    [SerializeField] SawScript sawScript;
 
 
     // Start is called before the first frame update
@@ -20,7 +20,8 @@ public class PlayerLifeScript : MonoBehaviour
         BC = GetComponent<BoxCollider2D>();
 
         CurrentHp = MaxHp;
-
+        sawScript = GameObject.FindGameObjectWithTag("Saw").GetComponent<SawScript>();
+        sawScript.OnHitPlayer += SawScript_OnHitPlayer;
     }
 
     private void SawScript_OnHitPlayer(object sender, System.EventArgs e)
@@ -28,8 +29,8 @@ public class PlayerLifeScript : MonoBehaviour
         TakeDamage(Damage);
     }
 
-    // Update is called once per frame
-    void Update()
+        // Update is called once per frame
+        void Update()
     {
 
     }

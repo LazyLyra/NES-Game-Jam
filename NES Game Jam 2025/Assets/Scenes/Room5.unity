@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc92be2789d5af40ada6834cc74e177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SceneIndex: 0
 --- !u!61 &19775715
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -499,6 +500,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6234673210387070428, guid: 1e9b4cd0c7014bb49adb6a6f14567848, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1961938615}
     - target: {fileID: 6234673210387070428, guid: 1e9b4cd0c7014bb49adb6a6f14567848, type: 3}
       propertyPath: leverScript
       value: 
@@ -13221,6 +13226,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66947d32de0333d4d8e65b6034f93444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1961938615 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6799195875720246327, guid: 4b46049546cdf97488a79373f53f43cd, type: 3}
+  m_PrefabInstance: {fileID: 1961938613}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1975040359
 PrefabInstance:
   m_ObjectHideFlags: 0

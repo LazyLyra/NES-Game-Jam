@@ -5,15 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class TransitionScript : MonoBehaviour
 {
-    int SceneIndex = 2;
+    [SerializeField] int SceneIndex;
+    [SerializeField] PlayerInteraction PIS;
+    [SerializeField] UIManager UIManager; //drag
 
+    private void Start()
+    {
+        PIS = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInteraction>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Entered");
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && PIS.pickingUp)
         {
             SceneIndex++;
             SceneManager.LoadSceneAsync(SceneIndex);
         }
+        else if (collision.CompareTag("Player") && !PIS.pickingUp)
+        {
+            UIManager.ShowMessage("DON'T FORGET THE PRINCESS!");
+        }
+        
     }
 }

@@ -10,7 +10,7 @@ public class LeverDoorScript : MonoBehaviour
     [SerializeField] private LeverScript leverScript; //Drag 
     [SerializeField] GameObject CloseChild;
     [SerializeField] GameObject OpenChild;
-    [SerializeField] Animator animator; //drag from lever
+    [SerializeField] public Animator animator; //drag from lever
     
 
     [Header("FixedPos")]
@@ -50,7 +50,7 @@ public class LeverDoorScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (!IsStatic) {
             Move();
