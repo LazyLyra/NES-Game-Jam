@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: fed619ba022acd84b87894cb11a4dd7d
   - enabled: 1
-    path: Assets/Scenes/Cutscene.unity
-    guid: 9bc34cb4b0a40034382bd3d682138027
+    path: Assets/Scenes/OutsideTemple.unity
+    guid: d14f0466b80d42c47a13e5a4a824dd44
   - enabled: 1
     path: Assets/Scenes/Room1.unity
     guid: ed3f64bc055ff434d849a6b764183726
@@ -27,10 +27,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Room5.unity
     guid: ad7b9a25e3e915c49a80dc3df241b0a8
   - enabled: 1
+    path: Assets/Scenes/Cutscene.unity
+    guid: 9bc34cb4b0a40034382bd3d682138027
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/OutsideTemple.unity
-    guid: d14f0466b80d42c47a13e5a4a824dd44
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 04506798e433a1f4cba7a225bdf478c2, type: 2}
