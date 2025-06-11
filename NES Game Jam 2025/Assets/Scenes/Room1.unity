@@ -1191,8 +1191,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7170868643438905162, guid: 0a000106e34420c438575bfd40cec770, type: 3}
+      propertyPath: canInteract
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170868643438905162, guid: 0a000106e34420c438575bfd40cec770, type: 3}
       propertyPath: carryOffSetY
       value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170868643438905162, guid: 0a000106e34420c438575bfd40cec770, type: 3}
+      propertyPath: interactionDis
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9015716021576403241, guid: 0a000106e34420c438575bfd40cec770, type: 3}
       propertyPath: m_Name
