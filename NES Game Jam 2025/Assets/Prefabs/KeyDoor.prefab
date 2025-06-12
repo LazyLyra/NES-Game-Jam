@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8245941064270772772}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5864316206798604247}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2723487071881159446}
   - component: {fileID: 8611669251556000494}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 6043325636415514180}
   - component: {fileID: 72363789453862953}
   - component: {fileID: 1019742126915821897}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: KeyDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
