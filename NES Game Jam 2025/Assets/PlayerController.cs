@@ -46,7 +46,7 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""PullLever"",
+                    ""name"": ""RestartGame"",
                     ""type"": ""Button"",
                     ""id"": ""4f94b5b8-6bca-4440-9f9e-1e4a9144299e"",
                     ""expectedControlType"": ""Button"",
@@ -81,11 +81,22 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""0bbf411e-17bc-4696-bb7c-04d09313b73a"",
-                    ""path"": ""<Keyboard>/c"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PullLever"",
+                    ""action"": ""RestartGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dda947ca-ec97-445a-965e-9c677c451703"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RestartGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -98,7 +109,7 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_PickUp = m_Player.FindAction("PickUp", throwIfNotFound: true);
         m_Player_Throw = m_Player.FindAction("Throw", throwIfNotFound: true);
-        m_Player_PullLever = m_Player.FindAction("PullLever", throwIfNotFound: true);
+        m_Player_RestartGame = m_Player.FindAction("RestartGame", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -162,14 +173,14 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_PickUp;
     private readonly InputAction m_Player_Throw;
-    private readonly InputAction m_Player_PullLever;
+    private readonly InputAction m_Player_RestartGame;
     public struct PlayerActions
     {
         private @PlayerController m_Wrapper;
         public PlayerActions(@PlayerController wrapper) { m_Wrapper = wrapper; }
         public InputAction @PickUp => m_Wrapper.m_Player_PickUp;
         public InputAction @Throw => m_Wrapper.m_Player_Throw;
-        public InputAction @PullLever => m_Wrapper.m_Player_PullLever;
+        public InputAction @RestartGame => m_Wrapper.m_Player_RestartGame;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -185,9 +196,9 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
             @Throw.started += instance.OnThrow;
             @Throw.performed += instance.OnThrow;
             @Throw.canceled += instance.OnThrow;
-            @PullLever.started += instance.OnPullLever;
-            @PullLever.performed += instance.OnPullLever;
-            @PullLever.canceled += instance.OnPullLever;
+            @RestartGame.started += instance.OnRestartGame;
+            @RestartGame.performed += instance.OnRestartGame;
+            @RestartGame.canceled += instance.OnRestartGame;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -198,9 +209,9 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
             @Throw.started -= instance.OnThrow;
             @Throw.performed -= instance.OnThrow;
             @Throw.canceled -= instance.OnThrow;
-            @PullLever.started -= instance.OnPullLever;
-            @PullLever.performed -= instance.OnPullLever;
-            @PullLever.canceled -= instance.OnPullLever;
+            @RestartGame.started -= instance.OnRestartGame;
+            @RestartGame.performed -= instance.OnRestartGame;
+            @RestartGame.canceled -= instance.OnRestartGame;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -222,6 +233,6 @@ public partial class @PlayerController: IInputActionCollection2, IDisposable
     {
         void OnPickUp(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
-        void OnPullLever(InputAction.CallbackContext context);
+        void OnRestartGame(InputAction.CallbackContext context);
     }
 }

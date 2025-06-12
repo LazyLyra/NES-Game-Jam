@@ -23,17 +23,20 @@ public class LeverDoorScript : MonoBehaviour
     [SerializeField] bool opening = false;
     [SerializeField] public bool IsStatic = true;
     [SerializeField] Vector3 targetPos;
+    [SerializeField] AudioSource AS;
 
     void Start()
     {
         leverScript.OnLeverPull += LeverScript_OnLeverPull;
         OpenPos = OpenChild.transform.position;
         ClosePos = CloseChild.transform.position;
+        AS = GetComponent<AudioSource>();
     }
 
     private void LeverScript_OnLeverPull(object sender, System.EventArgs e)
     {
         opening = !opening;
+        AS.Play();
         if (opening)
         {
             animator.SetBool("isOpening", true);

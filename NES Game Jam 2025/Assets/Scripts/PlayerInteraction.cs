@@ -25,17 +25,18 @@ public class PlayerInteraction : MonoBehaviour
         var all = GameObject.FindGameObjectsWithTag("Princess");
         playerController.Player.Enable();
         playerController.Player.PickUp.performed += PickUp_performed;
-        playerController.Player.Throw.performed += Throw_performed;
-    }
-
-    private void Throw_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
-    {
-        Throw();
     }
 
     private void PickUp_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        pickUp();
+        if (pickingUp)
+        {
+            Throw();
+        }
+        else
+        {
+            pickUp();   
+        }
     }
 
     private void pickUp()

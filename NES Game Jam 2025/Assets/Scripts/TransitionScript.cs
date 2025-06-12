@@ -15,7 +15,7 @@ public class TransitionScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (SceneIndex == 3) {
+        if (SceneIndex == 2 && collision.CompareTag("Player")) {
             SceneIndex++;
             SceneManager.LoadSceneAsync(SceneIndex);
         }

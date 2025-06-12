@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "PullLever",
+                    "name": "RestartGame",
                     "type": "Button",
                     "id": "4f94b5b8-6bca-4440-9f9e-1e4a9144299e",
                     "expectedControlType": "Button",
@@ -59,11 +59,22 @@
                 {
                     "name": "",
                     "id": "0bbf411e-17bc-4696-bb7c-04d09313b73a",
-                    "path": "<Keyboard>/c",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PullLever",
+                    "action": "RestartGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dda947ca-ec97-445a-965e-9c677c451703",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RestartGame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -15,14 +15,12 @@ public class SlidingDoorScript : MonoBehaviour
 
     [Header("References")]
     public Rigidbody2D RB;
-    public AudioSource AS;
     public GameObject OpenChild; //rmb to drag these
     public GameObject CloseChild;
 
     // Start is called before the first frame update
     void Start()
     {
-        AS = GetComponent<AudioSource>();
         RB = GetComponent<Rigidbody2D>();
         OpenPos = OpenChild.transform.position;
         ClosePos = CloseChild.transform.position;
@@ -54,6 +52,6 @@ public class SlidingDoorScript : MonoBehaviour
 
         Vector3 dir = ClosePos - transform.position;
         transform.position += dir * MoveSpeed * Time.deltaTime;
-        AS.Play();
+
     }
 }
