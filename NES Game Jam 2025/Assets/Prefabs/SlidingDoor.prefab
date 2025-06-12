@@ -54,6 +54,7 @@ MonoBehaviour:
   Opening: 0
   MoveSpeed: 1.5
   RB: {fileID: 0}
+  AS: {fileID: 0}
   OpenChild: {fileID: 7389873938395602583}
   CloseChild: {fileID: 3263558262317795306}
 --- !u!61 &3803802348624021764

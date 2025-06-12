@@ -19,15 +19,18 @@ public class InteractWithPrincess: MonoBehaviour
     [SerializeField] float deceleration = 0.1f;
     private Vector3 throwDirection;
     private float velocity;
+    public AudioClip[] soundClips;
 
     [Header("References")]
     [SerializeField] PlayerMovementScript PMS;
     [SerializeField] PlayerInteraction playerInteraction;
+    public AudioSource AS;
 
     private float currentDistance;
     void Start()
     {
         PMS = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementScript>();
+        AS = GetComponent<AudioSource>();
         playerInteraction = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInteraction>();
         playerInteraction.OnPickUp += PlayerInteraction_OnPickUp;
         playerInteraction.OnThrow += PlayerInteraction_OnThrow;
@@ -41,6 +44,7 @@ public class InteractWithPrincess: MonoBehaviour
             velocity = throwVelocity;
             float angle = 45f;
             float rad = angle * Mathf.Deg2Rad;
+            
             if (PMS.IsFacingRight) { 
                 throwDirection = new Vector3(Mathf.Cos(rad), Mathf.Sin(rad), 0).normalized;
             }
@@ -49,6 +53,7 @@ public class InteractWithPrincess: MonoBehaviour
                 throwDirection = new Vector3(-Mathf.Cos(rad), Mathf.Sin(rad), 0).normalized;
             }
 
+            AS.PlayOneShot(soundClips[1]);
         }
     }
 
@@ -57,6 +62,7 @@ public class InteractWithPrincess: MonoBehaviour
         if (canInteract)
         {
             beingPickedUp = !beingPickedUp;
+            AS.PlayOneShot(soundClips[0]);
         }
         
     }

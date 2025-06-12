@@ -33,6 +33,10 @@ public class PlayerMovementScript : MonoBehaviour
     public BoxCollider2D BC;
     public Animator anim;
     public InteractWithPrincess interactWithPrincess;
+    public AudioSource AS;
+
+    [Header("SFX")]
+    public AudioClip[] soundClips; 
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +45,7 @@ public class PlayerMovementScript : MonoBehaviour
         RB = GetComponent<Rigidbody2D>();
         BC = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
+        AS = GetComponent<AudioSource>();
         
         RB.gravityScale = initGravityScale;
         IsFacingRight = true;
@@ -96,10 +101,14 @@ public class PlayerMovementScript : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") != 0)
         {
             anim.SetBool("Running", true);
+            AS.clip = soundClips[0];
+            AS.loop = true;
+         
         }
         else
         {
             anim.SetBool("Running", false);
+            AS.loop = false;
         }
     }
     
@@ -108,12 +117,14 @@ public class PlayerMovementScript : MonoBehaviour
         
         if (CoyoteTimer > 0 && Input.GetKeyDown(KeyCode.Z))
         {
+            
             Jumping = true;
             if (interactWithPrincess.beingPickedUp)
             {
                 interactWithPrincess.transform.position = Vector2.up * JumpHeight;
             }
             RB.velocity = Vector2.up * JumpHeight;
+            AS.PlayOneShot(soundClips[1]);
         }
 
         if (Jumping && Input.GetKey(KeyCode.Z))

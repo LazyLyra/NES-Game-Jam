@@ -9,6 +9,7 @@ public class ButtonScript : MonoBehaviour
     public SlidingDoorScript SDS;
     public BoxCollider2D BC;
     public Animator anim;
+    public AudioSource AS;
 
     [Header("States")]
     [SerializeField] bool Pressed;
@@ -16,6 +17,7 @@ public class ButtonScript : MonoBehaviour
     void Start()
     {
         BC = GetComponent<BoxCollider2D>();
+        AS = GetComponent<AudioSource>();
         SDS = DoorAssigned.GetComponent<SlidingDoorScript>();
         anim = GetComponent<Animator>();
     }
@@ -40,6 +42,7 @@ public class ButtonScript : MonoBehaviour
         if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Princess")
         {
             Pressed = true;
+            AS.Play();
         }
         
     }
