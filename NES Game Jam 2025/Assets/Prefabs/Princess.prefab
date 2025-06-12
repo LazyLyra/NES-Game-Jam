@@ -164,7 +164,7 @@ MonoBehaviour:
   throwing: 0
   carryOffSetX: 0
   carryOffSetY: 0.6
-  throwVelocity: 0.2
+  throwVelocity: 0.1
   deceleration: 0.1
   PMS: {fileID: 0}
   playerInteraction: {fileID: 0}

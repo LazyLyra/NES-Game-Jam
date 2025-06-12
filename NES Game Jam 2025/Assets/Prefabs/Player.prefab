@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 5
-  JumpHeight: 7
+  JumpHeight: 8
   JumpTime: 0.07
   JumpTimer: 0
   Jumping: 0
@@ -227,6 +227,7 @@ MonoBehaviour:
   MaxHp: 100
   CurrentHp: 0
   Damage: 10
+  sawScript: {fileID: 0}
 --- !u!95 &6038514858628321538
 Animator:
   serializedVersion: 5

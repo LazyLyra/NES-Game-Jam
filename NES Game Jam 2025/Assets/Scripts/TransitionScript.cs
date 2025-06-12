@@ -16,14 +16,18 @@ public class TransitionScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Entered");
-        if (collision.CompareTag("Player") && PIS.pickingUp)
+        if (collision.CompareTag("Player") && PIS.pickingUp || collision.CompareTag("Player") && SceneIndex != 3)
         {
             SceneIndex++;
             SceneManager.LoadSceneAsync(SceneIndex);
         }
         else if (collision.CompareTag("Player") && !PIS.pickingUp)
         {
+            
             UIManager.ShowMessage("DON'T FORGET THE PRINCESS!");
+            
+            
+            
         }
         
     }
