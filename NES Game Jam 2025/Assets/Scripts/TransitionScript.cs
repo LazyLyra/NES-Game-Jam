@@ -17,12 +17,12 @@ public class TransitionScript : MonoBehaviour
     {
         if (SceneIndex == 2 && collision.CompareTag("Player")) {
             SceneIndex++;
-            SceneManager.LoadSceneAsync(SceneIndex);
+            SceneManager.LoadScene(SceneIndex);
         }
         if (collision.CompareTag("Player") && PIS.pickingUp)
         {
             SceneIndex++;
-            SceneManager.LoadSceneAsync(SceneIndex);
+            SceneManager.LoadScene(SceneIndex);
         }
         else if (collision.CompareTag("Player") && !PIS.pickingUp)
         {

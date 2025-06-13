@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -26,7 +27,12 @@ public class PlayerInteraction : MonoBehaviour
         playerController.Player.Enable();
         playerController.Player.PickUp.performed += PickUp_performed;
     }
-
+    void OnDisable()
+    {
+        if (playerController != null) { 
+        playerController.Player.PickUp.performed -= PickUp_performed;
+        }
+    }
     private void PickUp_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         if (pickingUp)
