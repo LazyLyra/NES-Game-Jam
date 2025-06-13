@@ -73,14 +73,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 192281541840853411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ce739cb300fb584391b1e3a6da3f9a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 56d2fc08c86646b4e9b94f83a53703e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   AtLeft: 0
-  Damage: 10
-  timer: 0
+  timer: 1
   moveTime: 0.8
-  MoveSpeed: 10
+  MoveSpeed: 4
   PMS: {fileID: 0}
   RB: {fileID: 0}
 --- !u!212 &1802454058874340265
