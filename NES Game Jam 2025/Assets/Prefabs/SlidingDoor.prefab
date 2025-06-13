@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3803802348624021764}
   - component: {fileID: 6933114228361750863}
   - component: {fileID: -726804519146848409}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SlidingDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,6 @@ MonoBehaviour:
   Opening: 0
   MoveSpeed: 1.5
   RB: {fileID: 0}
-  AS: {fileID: 0}
   OpenChild: {fileID: 7389873938395602583}
   CloseChild: {fileID: 3263558262317795306}
 --- !u!61 &3803802348624021764
@@ -236,7 +235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1812549970916771298}
   - component: {fileID: 8803673468841183368}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2671918564922904307}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +349,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 377805416212184865}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Open
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 5
-  JumpHeight: 8
+  JumpHeight: 9
   JumpTime: 0.07
   JumpTimer: 0
   Jumping: 0
@@ -63,7 +63,7 @@ MonoBehaviour:
   initGravityScale: 2
   Grounded: 0
   FeetPos: {fileID: 7275175174043401563}
-  CheckRadius: 0.3
+  CheckRadius: 0.1
   WhatIsGround:
     serializedVersion: 2
     m_Bits: 64
@@ -229,10 +229,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Alive: 0
   BC: {fileID: 0}
+  anim: {fileID: 0}
   MaxHp: 100
   CurrentHp: 0
   Damage: 10
-  sawScript: {fileID: 0}
+  AS: {fileID: 0}
+  soundClips:
+  - {fileID: 8300000, guid: c67b1015092a7d74ba5411ed4db6f0fc, type: 3}
 --- !u!95 &6038514858628321538
 Animator:
   serializedVersion: 5
@@ -375,7 +378,7 @@ Transform:
   m_GameObject: {fileID: 3939803146085893339}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.029, y: -0.35, z: 0}
+  m_LocalPosition: {x: -0.029, y: -0.4067, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

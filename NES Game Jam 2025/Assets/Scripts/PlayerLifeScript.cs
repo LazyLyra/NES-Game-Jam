@@ -8,11 +8,14 @@ public class PlayerLifeScript : MonoBehaviour
     [Header("Variables")]
     public bool Alive;
     public BoxCollider2D BC;
+    public Animator anim;
     [SerializeField] private int MaxHp = 100;
     [SerializeField] private int CurrentHp;
     [SerializeField] public int Damage = 10;
     private PlayerController playerController;
 
+    public AudioSource AS;
+    [SerializeField] AudioClip[] soundClips;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +23,9 @@ public class PlayerLifeScript : MonoBehaviour
         playerController = new PlayerController();
         playerController.Enable();
         Alive = true;
+        AS = GetComponent<AudioSource>();
         BC = GetComponent<BoxCollider2D>();
+        anim = GetComponent<Animator>();
 
         CurrentHp = MaxHp;
         playerController.Player.RestartGame.performed += RestartGame_performed;
@@ -51,11 +56,13 @@ public class PlayerLifeScript : MonoBehaviour
         Alive = false;
         StartCoroutine(RestartTimer());
         Time.timeScale = 0;
+        AS.PlayOneShot(soundClips[0]);
         //reload scene
+        anim.SetBool("Dead", true);
     }
 
-   
-    
+
+
     private IEnumerator RestartTimer()
     {
         yield return new WaitForSeconds(10f);
