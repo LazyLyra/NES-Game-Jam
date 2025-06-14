@@ -241,6 +241,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8947563, y: 0.9668579}
   m_EdgeRadius: 0
+--- !u!114 &174775917 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6291011643740489784, guid: 60da7737f39b4af408a4ea61b6c0283d, type: 3}
+  m_PrefabInstance: {fileID: 1026615380}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &309070532
 GameObject:
   m_ObjectHideFlags: 0
@@ -11291,17 +11302,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &694371522 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2116420472862714068, guid: 6a1abf0ba7781334ca85a75b7ef31a52, type: 3}
-  m_PrefabInstance: {fileID: 731456049}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dff84265beea62946b8ce582f1292440, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &695460431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11610,6 +11610,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2116420472862714068, guid: 6a1abf0ba7781334ca85a75b7ef31a52, type: 3}
+      propertyPath: DeathMsg
+      value: 
+      objectReference: {fileID: 174775917}
     - target: {fileID: 2116420472862714068, guid: 6a1abf0ba7781334ca85a75b7ef31a52, type: 3}
       propertyPath: WarningMsg
       value: 
@@ -11978,6 +11982,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8352317002222941740, guid: 60da7737f39b4af408a4ea61b6c0283d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8352317002222941740, guid: 60da7737f39b4af408a4ea61b6c0283d, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11996,7 +12008,7 @@ GameObject:
   - component: {fileID: 1041963069}
   m_Layer: 0
   m_Name: TransitionBlock
-  m_TagString: Untagged
+  m_TagString: Transitioner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12015,7 +12027,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneIndex: 4
   PIS: {fileID: 0}
-  UIManager: {fileID: 694371522}
 --- !u!61 &1041963070
 BoxCollider2D:
   m_ObjectHideFlags: 0

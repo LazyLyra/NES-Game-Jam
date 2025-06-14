@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class TransitionScript : MonoBehaviour
 {
     [SerializeField] int SceneIndex;
     [SerializeField] PlayerInteraction PIS;
-    [SerializeField] UIManager UIManager; //drag
+    public event EventHandler OnTransition;
 
     private void Start()
     {
@@ -26,8 +27,7 @@ public class TransitionScript : MonoBehaviour
         }
         else if (collision.CompareTag("Player") && !PIS.pickingUp)
         {
-            
-            UIManager.ShowMessage("DON'T FORGET THE PRINCESS!");
+            OnTransition?.Invoke(this, EventArgs.Empty);
         }
         
     }

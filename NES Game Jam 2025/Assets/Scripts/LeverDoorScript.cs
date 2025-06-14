@@ -35,8 +35,8 @@ public class LeverDoorScript : MonoBehaviour
 
     private void LeverScript_OnLeverPull(object sender, System.EventArgs e)
     {
-        opening = !opening;
         AS.Play();
+        opening = !opening;
         if (opening)
         {
             animator.SetBool("isOpening", true);
@@ -47,7 +47,7 @@ public class LeverDoorScript : MonoBehaviour
         {
             Dir = ClosePos - transform.position;
             targetPos = ClosePos;
-            animator.SetBool("isClosing",true);
+            animator.SetBool("isClosing", true);
         }
         IsStatic = false;
     }
@@ -57,13 +57,13 @@ public class LeverDoorScript : MonoBehaviour
     {
         if (!IsStatic) {
             Move();
-            if (opening && transform.position.y >= targetPos.y)
+            if (opening && transform.position.y >= targetPos.y -0.1f && transform.position.y <= targetPos.y+0.1)
             {
                 transform.position = targetPos;
                 IsStatic = true;
                 animator.SetBool("isOpening", false);
             }
-            else if (!opening &&transform.position.y <= targetPos.y)
+            else if (!opening && transform.position.y >= targetPos.y - 0.1f && transform.position.y <= targetPos.y + 0.1)
             {
                 transform.position = targetPos;
                 IsStatic= true;

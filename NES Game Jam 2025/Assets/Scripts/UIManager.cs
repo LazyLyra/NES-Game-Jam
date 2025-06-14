@@ -6,18 +6,38 @@ using UnityEditor.VersionControl;
 public class UIManager : MonoBehaviour
 {
     public Text WarningMsg;
-    [SerializeField] float duration = 1f;
+    public Text DeathMsg;
+    [SerializeField] PlayerLifeScript playerLifeScript;
+    [SerializeField] TransitionScript transitionScript;
 
-    public void ShowMessage(string message)
+    private void Start()
     {
-        StartCoroutine(DisplayMessage(message, duration));
+        playerLifeScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerLifeScript>();
+        transitionScript = GameObject.FindGameObjectWithTag("Transitioner").GetComponent<TransitionScript>();
+        playerLifeScript.Ondeath += PlayerLifeScript_Ondeath;
+        transitionScript.OnTransition += TransitionScript_OnTransition;
     }
 
-    private IEnumerator DisplayMessage(string message, float duration)
+    private void TransitionScript_OnTransition(object sender, System.EventArgs e)
     {
-        WarningMsg.text = message;
-        WarningMsg.enabled = true;
+        ShowMessage("DON'T FORGET THE PRINCESS!", 1f, WarningMsg);
+    }
+
+    private void PlayerLifeScript_Ondeath(object sender, System.EventArgs e)
+    {
+        ShowMessage("YOU DIED!", 4f, DeathMsg);
+    }
+
+    public void ShowMessage(string message, float duration, Text thisMsg)
+    {
+        StartCoroutine(DisplayMessage(message, duration, thisMsg));
+    }
+
+    private IEnumerator DisplayMessage(string message, float duration, Text thisMsg)
+    {
+        thisMsg.text = message;
+        thisMsg.enabled = true;
         yield return new WaitForSeconds(duration);
-        WarningMsg.enabled = false;
+        thisMsg.enabled = false;
     }
 }

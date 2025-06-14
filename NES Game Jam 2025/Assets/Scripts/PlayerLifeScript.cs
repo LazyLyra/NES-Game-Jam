@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,6 +16,10 @@ public class PlayerLifeScript : MonoBehaviour
     [SerializeField] private int CurrentHp;
     [SerializeField] public int Damage = 10;
     private PlayerController playerController;
+    private PlayerMovementScript playerMovementScript;
+    private SpriteRenderer SR;
+    private GameObject deathMsg;
+    public event EventHandler Ondeath; 
 
     public AudioSource AS;
     [SerializeField] AudioClip[] soundClips;
@@ -20,22 +27,17 @@ public class PlayerLifeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerController = new PlayerController();
-        playerController.Enable();
+
         Alive = true;
         AS = GetComponent<AudioSource>();
         BC = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
-
+        SR = GetComponent<SpriteRenderer>();
+        playerMovementScript = GetComponent<PlayerMovementScript>();
         CurrentHp = MaxHp;
-        playerController.Player.RestartGame.performed += RestartGame_performed;
     }
 
-    private void RestartGame_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Time.timeScale = 1.0f;
-    }
+
 
     void OnCollisionEnter2D(Collision2D collider) 
     {
@@ -54,18 +56,26 @@ public class PlayerLifeScript : MonoBehaviour
     public void Die()
     {
         Alive = false;
-        StartCoroutine(RestartTimer());
-        Time.timeScale = 0;
-        AS.PlayOneShot(soundClips[0]);
-        //reload scene
         anim.SetBool("Dead", true);
+        AS.PlayOneShot(soundClips[0]);
+        playerMovementScript.enabled = false;
+        AS.enabled = false;
+        StartCoroutine(RestartTimer());    
+        //reload scene
     }
 
 
 
     private IEnumerator RestartTimer()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(1f);
+        Ondeath?.Invoke(this, EventArgs.Empty);
+        SR.enabled = false;
+        yield return new WaitForSeconds(3f);
+        SR.enabled = true;
+        playerMovementScript.enabled = true;
+        AS.enabled = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     private void TakeDamage(int Dmg)
     {
