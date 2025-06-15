@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEditor.VersionControl;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -16,6 +18,11 @@ public class UIManager : MonoBehaviour
         transitionScript = GameObject.FindGameObjectWithTag("Transitioner").GetComponent<TransitionScript>();
         playerLifeScript.Ondeath += PlayerLifeScript_Ondeath;
         transitionScript.OnTransition += TransitionScript_OnTransition;
+        if (SceneManager.GetActiveScene().name == "Room2")
+        {
+
+            ShowMessage("THE TEMPLE IS COLLASPING!", 3f, WarningMsg);
+        }
     }
 
     private void TransitionScript_OnTransition(object sender, System.EventArgs e)

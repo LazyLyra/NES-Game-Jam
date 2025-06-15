@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Windows;
+using UnityEngine.SceneManagement;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -26,7 +27,14 @@ public class PlayerInteraction : MonoBehaviour
         var all = GameObject.FindGameObjectsWithTag("Princess");
         playerController.Player.Enable();
         playerController.Player.PickUp.performed += PickUp_performed;
+        playerController.Player.RestartGame.performed += RestartGame_performed;
     }
+
+    private void RestartGame_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     void OnDisable()
     {
         if (playerController != null) { 

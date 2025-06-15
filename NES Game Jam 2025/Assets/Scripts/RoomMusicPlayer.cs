@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class RoomMusicPlayer : MonoBehaviour
 {
+    private static RoomMusicPlayer instance;
     public AudioSource AS;
     [SerializeField] float rate;
     [SerializeField] float max;
@@ -16,10 +17,15 @@ public class RoomMusicPlayer : MonoBehaviour
     {
         AS = GetComponent<AudioSource>();
         AS.volume = 0.1f;
-       
-        if (playing && SceneManager.GetActiveScene().buildIndex != 6)
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        if (playing && SceneManager.GetActiveScene().name != "EndCutScene")
         {
             DontDestroyOnLoad(gameObject);
+            instance = this;
         }
     }
 
