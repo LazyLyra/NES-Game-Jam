@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1835326207118081798}
   - component: {fileID: 4900170167495460622}
   - component: {fileID: 3992625234922493624}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8969341472282364154}
   - component: {fileID: 7732179965476933605}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider Size
   m_TagString: Untagged
   m_Icon: {fileID: 0}

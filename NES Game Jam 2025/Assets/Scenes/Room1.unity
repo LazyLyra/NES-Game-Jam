@@ -19215,7 +19215,7 @@ PrefabInstance:
       objectReference: {fileID: 64908670}
     - target: {fileID: 5150004625364945349, guid: 2aff64353b946ab42b038918779455ec, type: 3}
       propertyPath: m_PlayOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7847818606329844625, guid: 2aff64353b946ab42b038918779455ec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19261,7 +19261,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomMusicPlayer
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1934606094034088047, guid: 2aff64353b946ab42b038918779455ec, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

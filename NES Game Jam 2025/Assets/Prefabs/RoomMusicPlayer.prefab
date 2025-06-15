@@ -145,3 +145,6 @@ MonoBehaviour:
   rate: 0.05
   max: 0.4
   playing: 0
+  soundClips:
+  - {fileID: 8300000, guid: 1f2322a0efb5657489b40c4eea319181, type: 3}
+  - {fileID: 8300000, guid: c20386f40218cfb4abeab7b0c32a0f99, type: 3}

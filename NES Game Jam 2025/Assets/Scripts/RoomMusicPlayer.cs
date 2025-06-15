@@ -2,19 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Build;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RoomMusicPlayer : MonoBehaviour
 {
     public AudioSource AS;
     [SerializeField] float rate;
     [SerializeField] float max;
-    [SerializeField] bool playing; 
+    [SerializeField] bool playing;
+    
     // Start is called before the first frame update
     void Start()
     {
         AS = GetComponent<AudioSource>();
-        AS.volume = 0.05f;
-        if (playing)
+        AS.volume = 0.1f;
+       
+        if (playing && SceneManager.GetActiveScene().buildIndex != 6)
         {
             DontDestroyOnLoad(gameObject);
         }
@@ -31,9 +34,7 @@ public class RoomMusicPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (AS.volume < max)
-        {
-            AS.volume += rate * Time.deltaTime;
-        }
+        
+
     }
 }
